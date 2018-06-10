@@ -77,7 +77,7 @@ namespace Bastet{
     //falls back to the user-specific file
     string s=string(getenv("HOME"))+LocalHighScoresFileName;
     if(result.empty()){
-      cerr<<boost::str(boost::format("bastet: using a user-specific high scores file: %1%\nas the global high scores file %2% is not writable\n") % s % GlobalHighScoresFileName);
+      cerr<<boost::str(boost::format(gettext("bastet: using a user-specific high scores file: %1%\nas the global high scores file %2% is not writable\n")) % s % GlobalHighScoresFileName);
       fstream ofs2(s.c_str());
       if(!ofs2.fail()){
 
@@ -90,7 +90,7 @@ namespace Bastet{
     if(result.empty()){
       ofstream ofs3(s.c_str());
       if(!ofs3.fail()){
-	cerr<<boost::str(boost::format("bastet: creating a new user-specific high scores file %1%\n") % s);
+	cerr<<boost::str(boost::format(gettext("bastet: creating a new user-specific high scores file %1%\n")) % s);
 	result=s;
       }
       ofs3.close();
